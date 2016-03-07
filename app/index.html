@@ -6,9 +6,10 @@
   <title>OmniFilter</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
   <!-- NEEDS WORK: add css file links here -->
+  <link rel="stylesheet" href="/css/base.css"><!-- This needs to be created -->
 </head>
 
-<body data-ng-app="omniApp">
+<body data-ng-app="omnifilterApp">
   <header>
     <h1>Omnifilter</h1>
   <header>
@@ -49,18 +50,66 @@
       Filesaver.js is in the /app/js directory
       Blob notes are here https://github.com/energene/Blob.js
       Blob.js is in the /app/js directory-->
-
     </section><!-- End of Save and Share section -->
+
+    <!--This is the container for the NAV section -->
+    <nav class="nav_box">
+
+    </nav>
+
+    <!--This is the container for the PIC PREVIEW section -->
+    <!-- NEEDS WORK: make a box to contain the preview pic -->
+
+    <!-- This is the form that appears under the preview -->
+    <section class="save_and_share_box">
+      <photo data-photo-data="newPhoto">
+        <photo-form
+          data-button-text="Create New Photo Project"
+          data-photo="newPhoto"
+          data-save="createPhoto(newPhoto)"
+        ></photo-form>
+      </photo>
+    </section>
 
 </section><!--End tag for the container for the whole page -->
   <main></main>
 
   <article></article>
-  <footer>
-    <h2>© OmniFilter 2016<h2>
-  </footer>
 
+  <footer><h2>© OmniFilter 2016<h2></footer>
   <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="pa4xdc272nqrnqx"></script>
+  <script src="bundle.js"></script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+  <section data-ng-controller="OmnifilterController" data-ng-init="getAll()">
+
+    <!-- NEEDS WORK: Expose this section when My Photos is clicked on the NavBar -->
+    <h1>Omnifilter--My Photos</h1>
+    <ul>
+      <photo data-ng-repeat="photo in photos" data-photo-data="photo">
+        <button data-ng-click="deletePhoto(photo)">Delete Photo</button>
+        <button data-ng-if="!photo.editing" data-ng-click="toggleEdit(photo)">Update Photo Info</button>
+        <photo-form
+          data-ng-if="photo.editing"
+          data-save="updatePhoto(photo)"
+          data-button-text="Update Photo Info"
+          data-photo="photo"
+        >
+          <button type="button" data-ng-click="toggleEdit(photo)">Cancel</button>
+        </photo-form>
+      </photo>
+    </ul>
+
+  
+  </section>
+
+
+</section>
