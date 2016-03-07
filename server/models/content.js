@@ -5,7 +5,7 @@ var contentSchema = new mongoose.Schema({
   title: String,
   createdOn: String,
   tags: [String],
-  location: String,
+  location: String
 });
 
 module.exports = mongoose.model('Content', contentSchema);
