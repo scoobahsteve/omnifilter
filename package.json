@@ -1,0 +1,23 @@
+{
+  "name": "omnifilter",
+  "version": "1.0.0",
+  "description": "\"Awesome filters applied to personal images\"",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocgears/omnifilter.git"
+  },
+  "author": "Stephen Salzer, Aaron Filson, Gene Troy, Erika Hokanson, Rob Merrill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ocgears/omnifilter/issues"
+  },
+  "homepage": "https://github.com/ocgears/omnifilter#readme"
+}
