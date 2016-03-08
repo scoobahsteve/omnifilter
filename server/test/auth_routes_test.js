@@ -4,7 +4,7 @@ chai.use(chaiHTTP);
 var mongoose = require('mongoose');
 var expect = chai.expect;
 
-process.env.MONGO_URI = 'mongodb://localhost/app_dev';
+process.env.MONGO_URI = 'mongodb://localhost/omnifilter_app_dev';
 
 const server = require(__dirname + '/../server.js');
 const User = require(__dirname + '/../models/user.js');
@@ -20,7 +20,7 @@ describe('the authorization route', () => {
   });
   it('should create a new user with a POST request', (done) => {
     chai.request(baseUri)
-      .post('/api/signup')
+      .post('/signup')
       .send({"email":"omnifilter@codefellows.com", "password":"password"})
       .end((err, res) => {
         expect(err).to.eql(null);
@@ -43,7 +43,7 @@ describe('the authorization route', () => {
     });
     it('should check if the user has valid credentials', (done) => {
       chai.request(baseUri)
-        .get('/api/signin')
+        .get('/signin')
         .auth("gene@gmail.com", "password")
         .end((err, res) => {
           expect(err).to.eql(null);
