@@ -6,72 +6,72 @@ const basicHTTP = require(__dirname + '/../lib/basic-http');
 const authCheck = require(__dirname + '/../lib/check-token');
 
 const User = require(__dirname + '/../models/user');
-const Content = require(__dirname + '/../models/Content');
+// const Content = require(__dirname + '/../models/Content');
 
 var userRouter = module.exports = exports = express.Router();
 
-userRouter.get('/contents', authCheck, (req, res) => {
-  Content.find({
-    author_id: req.user._id
-  }, (err, data) => {
+userRouter.post('/newuser', jsonParser, (req, res) => {
+  var newUser = new User(req.body);
+  newUser.user_id = req.user._id;
+  newUser.save((err, data) => {
     if (err) {
       return res.status(500).json({
-        msg: 'Error finding contents'
+        msg: 'Error creating user'
       })
     }
 
     res.status(200).json({
-      msg: 'All contents retrieved',
+      msg: 'User created',
+      createdUser: data
+    });
+  });
+});
+
+userRouter.get('/verify', authCheck, (req, res) => {
+  User.find({
+    user_id: req.user._id
+  }, (err, data) => {
+    if (err) {
+      return res.status(500).json({
+        msg: 'Error finding user'
+      })
+    }
+
+    res.status(200).json({
+      msg: 'User verified',
       contents: data
     });
   });
 });
 
-userRouter.content('/new', authCheck, jsonParser, (req, res) => {
-  var newContent = new Content(req.body);
-  newContent.author_id = req.user._id;
-  newContent.save((err, data) => {
-    if (err) {
-      return res.status(500).json({
-        msg: 'Error creating content'
-      })
-    }
-
-    res.status(200).json({
-      msg: 'Content created',
-      createdContent: data
-    });
-  });
-});
-
-userRouter.put('/content/:id', authCheck, jsonParser, (req, res) => {
-  var updateContent = req.body;
-  delete updateContent._id;
-  Content.update({
+userRouter.put('/usersettings/:id', authCheck, jsonParser, (req, res) => {
+  var updateUser = req.body;
+  delete updateUser._id;
+  User.update({
     _id: req.params.id
-  }, updateContent, (err) => {
+  }, updateUser, (err) => {
     if (err) {
       return res.status(500).json({
-        msg: 'Error updating content'
+        msg: 'Error updating user'
       })
     }
     res.status(200).json({
-      msg: 'Content updated'
+      msg: 'User updated'
     });
   });
 });
 
-userRouter.delete('/content/:id', authCheck, (req, res) => {
-  Content.remove({
+userRouter.delete('/deleteuser/:id', authCheck, (req, res) => {
+  User.remove({
     _id: req.params.id
   }, (err) => {
     if (err) {
       return res.status(500).json({
-        msg: 'Error deleting content'
+        msg: 'Error deleting user'
       })
     }
     res.status(200).json({
-      msg: 'Content deleted'
+      msg: 'User deleted'
     });
   });
 });
