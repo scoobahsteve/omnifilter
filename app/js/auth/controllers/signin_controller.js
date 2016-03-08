@@ -4,7 +4,7 @@ module.exports = function(app) {
       auth.signIn(user, function() {
         $scope.updateUsername();
         $location.path('/home');
-      }); 
+      });
     };
   }]);
 };

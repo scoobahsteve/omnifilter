@@ -7,7 +7,12 @@ module.exports = function(app) {
       //$scope.fakePhoto={name: 'a fake photo', fishPreference: 'suffering'};
       //cfStore.set('greeting', 'hello world');
     $scope.photos = [];
+    $scope.errors = [];
     var photoService = Resource('/photos');
+
+    $scope.dismissError = function(err) {
+      $scope.errors.splice($scope.errors.indexOf(err), 1);
+    };
 
     $scope.toggleEdit = function(photo) {
       if (photo.backup) {
@@ -29,16 +34,23 @@ module.exports = function(app) {
     $scope.createPhoto = function(photo) {
       $scope.photos.push(photo);
       photoService.create(photo, function(err, res) {
-        if (err) return console.log(err);
+        if (err) {
+          $scope.photos.splice($scope.photos.indexOf(photo), 1);
+          $scope.errors.push('Could not save photo with name of ' + photo.name);
+          return console.log(err);
+        }
         $scope.photos.splice($scope.photos.indexOf(photo), 1, res);
-        $scope.newPhoto = null;
+        $scope.newphoto = null;
       });
     };
 
     $scope.deletePhoto = function(photo) {
       if (!photo._id) return setTimeout(function() {$scope.deletePhoto(photo);}, 1000);
       photoService.delete(photo, function(err, res) {
-        if (err) return console.log(err);
+        if (err) {
+          $scope.errors.push('could not delete photo ' + photo.name);
+          return console.log(err);
+        }
         $scope.photos.splice($scope.photos.indexOf(photo), 1);
       });
     };
@@ -47,7 +59,10 @@ module.exports = function(app) {
       photoService.update(photo, function(err, res) {
         photo.editing = false;
         photo.backup = null;
-        if (err) return console.log(err);
+        if (err) {
+          $scope.errors.push('could not update photo ' + photo.name);
+          return console.log(err);
+        }
       });
     };
   }]);
