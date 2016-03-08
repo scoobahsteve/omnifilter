@@ -2,8 +2,8 @@ const express = require('express');
 const jsonParser = require('body-parser').json();
 const mongoose = require('mongoose');
 
-const basicHTTP = require(__dirname + '/../lib/basic-http');
-const authCheck = require(__dirname + '/../lib/check-token');
+const basicHTTP = require(__dirname + '/../lib/basic_http');
+const jwtAuth = require(__dirname + '/../lib/jwt_auth');
 
 const User = require(__dirname + '/../models/user');
 // const Content = require(__dirname + '/../models/Content');
@@ -27,7 +27,7 @@ userRouter.post('/newuser', jsonParser, (req, res) => {
   });
 });
 
-userRouter.get('/verify', authCheck, (req, res) => {
+userRouter.get('/verify', jwtAuth, (req, res) => {
   User.find({
     user_id: req.user._id
   }, (err, data) => {
@@ -44,7 +44,7 @@ userRouter.get('/verify', authCheck, (req, res) => {
   });
 });
 
-userRouter.put('/usersettings/:id', authCheck, jsonParser, (req, res) => {
+userRouter.put('/usersettings/:id', jwtAuth, jsonParser, (req, res) => {
   var updateUser = req.body;
   delete updateUser._id;
   User.update({
@@ -61,7 +61,7 @@ userRouter.put('/usersettings/:id', authCheck, jsonParser, (req, res) => {
   });
 });
 
-userRouter.delete('/deleteuser/:id', authCheck, (req, res) => {
+userRouter.delete('/deleteuser/:id', jwtAuth, (req, res) => {
   User.remove({
     _id: req.params.id
   }, (err) => {
