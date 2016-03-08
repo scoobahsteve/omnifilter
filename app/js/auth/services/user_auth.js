@@ -21,7 +21,7 @@ module.exports = function(app) {
           url: 'http://localhost:3000/api/signin',
           headers: {
             'Authorization': 'Basic ' + btoa((user.email + ':' + user.password))
-          } 
+          }
         })
           .then(function(res) {
             token = $window.localStorage.token = res.data.token;
@@ -51,7 +51,7 @@ module.exports = function(app) {
           }
         })
         .then(function(res) {
-          user = res.data.username; 
+          user = res.data.username;
           cb(res);
         },function(res) {
           cb(res);
@@ -60,7 +60,7 @@ module.exports = function(app) {
       username: function() {
         if (!user) auth.getUsername();
         return user;
-      } 
+      }
     };
     return auth;
   }]);
