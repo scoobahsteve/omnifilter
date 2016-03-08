@@ -1,7 +1,19 @@
-var assert = require("assert");
-var nooocl = require("nooocl");
+var nooocl = require('nooocl');
 var CLHost = nooocl.CLHost;
+var CLPlatform = nooocl.CLPlatform;
+var CLDevice = nooocl.CLDevice;
+var CLContext = nooocl.CLContext;
+var CLBuffer = nooocl.CLBuffer;
 var CLCommandQueue = nooocl.CLCommandQueue;
+var CLUserEvent = nooocl.CLUserEvent;
+var NDRange = nooocl.NDRange;
+var CLProgram = nooocl.CLProgram;
+var CLKernel = nooocl.CLKernel;
+var CLImage2D = nooocl.CLImage2D;
+var CLImage3D = nooocl.CLImage3D;
+var CLSampler = nooocl.CLSampler;
+
+var assert = require("assert");
 var ref = require("ref");
 var testHelpers = require("./testHelpers");
 var path = require("path");
@@ -9,8 +21,6 @@ var Bluebird = require("bluebird");
 var fs = Bluebird.promisifyAll(require("fs"));
 var cd = __dirname;
 var jpeg = require("jpeg-js");
-var CLImage2D = nooocl.CLImage2D;
-var NDRange = nooocl.NDRange;
 
 testHelpers.doTest(function (env) {
 
