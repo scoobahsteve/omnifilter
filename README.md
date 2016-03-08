@@ -23,7 +23,19 @@ location: String
 ```
 
 ### Dependencies
-
+assert,
+babel-core,
+babel-loader,
+bluebird,
+ffi,
+html-loader,
+jpeg-js,
+lodash,
+nooocl,
+path,
+ref,
+underscore,
+webpack
 
 ### Authors
 Aaron Filson (https://github.com/aaronfilson)<br/>
