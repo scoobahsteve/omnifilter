@@ -3,7 +3,7 @@ const jsonParser = require('body-parser').json();
 const mongoose = require('mongoose');
 
 const basicHTTP = require(__dirname + '/../lib/basic_http');
-const jwtAuth = require(__dirname + '/../lib/jwt_auth');
+const authCheck = require(__dirname + '/../lib/jwt_auth');
 
 const User = require(__dirname + '/../models/user');
 // const Content = require(__dirname + '/../models/Content');
