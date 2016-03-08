@@ -3,13 +3,7 @@
   "version": "1.0.2",
   "description": "\"Awesome filters applied to personal images\"",
   "main": "gulpfile.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
+  "directories": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ocgears/omnifilter.git"
@@ -35,7 +29,12 @@
     "underscore": "^1.8.3",
     "webpack": "^1.12.14"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jshint": "2.9.1"
+  },
+  "scripts": {
+    "test": "./node_modules/jshint/bin/jshint shut_up_travis.js"
+  },
   "keywords": [
     "image-filter",
     "parallel-programming",
