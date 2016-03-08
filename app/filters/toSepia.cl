@@ -15,7 +15,7 @@ kernel void toSepia(read_only image2d_t srcImg, write_only image2d_t dstImg)
   // float luminance = sqrt(0.43f * rbgafloat.z * rbgafloat.z + 0.74f * rbgafloat.y * rbgafloat.y + 1.07f * rbgafloat.x * rbgafloat.x);
 
   rgba.x = rgba.y = rgba.z = (uint) (rgba.z * 255.0f);
-  // rgba.w = 255;
+  rgba.w = 255;
 
   write_imageui(dstImg, coord, rgba);
 }
