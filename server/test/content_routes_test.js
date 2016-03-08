@@ -7,7 +7,7 @@ process.env.MONGOLAB_URI = 'mongodb://localhost/content_app_test';
 const server = require(__dirname + '/../server');
 const Content = require(__dirname + '/../models/content');
 
-describe('the content api', () => {
+describe('content api', () => {
   after((done) => {
     mongoose.connection.db.dropDatabase(() => {
       done();
@@ -52,7 +52,7 @@ describe('the content api', () => {
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
-          expect(res.body.msg).to.eql('success');
+          expect(res.body.msg).to.eql('Successfully updated content');
           done();
         });
     });
@@ -63,7 +63,7 @@ describe('the content api', () => {
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
-          expect(res.body.msg).to.eql('success');
+          expect(res.body.msg).to.eql('Successfully deleted content');
           done();
         });
     });

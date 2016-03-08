@@ -12,7 +12,7 @@ var baseUri = 'localhost:3000';
 var userId;
 var userToken;
 
-describe('the authorization route', () => {
+describe('authorization route', () => {
   after((done) => {
     User.remove({}, function(err) {
       done();
@@ -21,7 +21,7 @@ describe('the authorization route', () => {
   it('should create a new user with a POST request', (done) => {
     chai.request(baseUri)
       .post('/signup')
-      .send({"email":"omnifilter@codefellows.com", "password":"password"})
+      .send({"email":"gene@gmail.com", "password":"password"})
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);

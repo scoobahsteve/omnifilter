@@ -22,16 +22,6 @@ describe('user API', () => {
     });
   });
 
-  it('should be able to verify that a user exists', (done) => {
-    request('localhost:3000')
-      .get('/verify/')
-      .end((err, res) => {
-        expect(err).to.eql(null);
-        expect(Array.isArray(res.body)).to.eql(true);
-        done();
-      });
-  });
-
   it('should create a user with a POST', (done) => {
       request('localhost:3000')
         .post('/newuser')
@@ -44,6 +34,16 @@ describe('user API', () => {
           done();
         });
     });
+
+  it('should be able to verify that a user exists', (done) => {
+    request('localhost:3000')
+      .get('/verify/')
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(Array.isArray(res.body)).to.eql(true);
+        done();
+      });
+  });
 
     describe('tests that require a user in db', () => {
       beforeEach((done) => {
@@ -68,7 +68,7 @@ describe('user API', () => {
 
       it('should be able to DELETE a user', (done) => {
         request('localhost:3000')
-          .delete('/delete/' + this.testUser._id)
+          .delete('/deleteuser/' + this.testUser._id)
           .end((err, res) => {
             expect(err).to.eql(null);
             expect(res.body.msg).to.eql('Successfully deleted user');
