@@ -1,5 +1,5 @@
 # omnifilter        ![alt tag](https://travis-ci.org/ocgears/omnifilter.svg?branch=master)
-###### An image processing library designed on the theory of parallel processing to apply filters to photos at a very high and efficient rate of speed.
+###### An image processing library designed on the theory of parallel processing to apply filters to photos extremely quickly and efficiently.
 
 ## Contents
 +   [Compare/Contrast](https://github.com/ocgears/omnifilter#overview)
@@ -41,7 +41,8 @@ webpack
 Aaron Filson (https://github.com/aaronfilson)<br/>
 Stephen Salzer (https://github.com/scoobahsteve)</br>
 Rob Merrill (https://github.com/robgmerrill)</br>
-Erika Hokanson (https://github.com/erikawho)<br/>
+Erika Hokanson (https://github.com/erikawho)<br>
+Gene Troy (https://github.com/energene)<br/>
 
 ## License
 

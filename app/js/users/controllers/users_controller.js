@@ -3,10 +3,6 @@ var angular = require('angular');
 module.exports = function(app) {
   app.controller('UsersController', ['$scope', '$http', 'cfResource', 'cfStore',
   function($scope, $http, Resource, cfStore) {
-    //These are recycled lines from Tyler
-      //$scope.greeting = 'hello world';
-      //$scope.fakeUser={name: 'a fake user', fishPreference: 'suffering'};
-      //cfStore.set('greeting', 'hello world');
     $scope.users = [];
     var userService = Resource('/users');
 

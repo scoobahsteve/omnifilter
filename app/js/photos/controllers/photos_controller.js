@@ -1,11 +1,9 @@
 var angular = require('angular');
 
 module.exports = function(app) {
-  app.controller('PhotosController', ['$scope', '$http', 'cfResource', 'cfStore', function($scope, $http, Resource, cfStore) {
-    //These are recycled lines from Tyler
-      //$scope.greeting = 'hello world';
-      //$scope.fakePhoto={name: 'a fake photo', fishPreference: 'suffering'};
-      //cfStore.set('greeting', 'hello world');
+  app.controller('PhotosController', ['$scope', '$http', 'cfResource', 'cfStore',
+                  function($scope, $http, Resource, cfStore) {
+
     $scope.photos = [];
     $scope.errors = [];
     var photoService = Resource('/photos');
