@@ -3,7 +3,6 @@ module.exports = function(app) {
     return {
       restrict: 'EAC',
       replace: true,
-      transclude: true,
       templateUrl: '/templates/photos/directives/photo_form_directive.html',
       scope: {
         buttonText: '@',

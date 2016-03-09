@@ -5,30 +5,31 @@
   <meta charset="UTF-8">
   <title>OmniFilter</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
-  <!-- NEEDS WORK: add css file links here -->
+<!-- NEEDS WORK: add SMACSS files linkssss here -->
   <link rel="stylesheet" href="/css/base.css">
-  <!-- SMACSS needs to be created -->
 </head>
 
 <body data-ng-app="omnifilterApp">
   <header>
-    <h1>Omnifilter</h1>
+    <h1>Omnifilter!!!!</h1>
   <header>
 
   <!--This is the container for the whole page -->
-  <section id="container">
+  <section class="container">
 
     <!--This is the container for the FILTERS section -->
+    <!-- Add functionality to radio buttons -->
+    <!-- get rid of breaks in CSS -->
     <section class="filter_box">
       <form action="" class="filter_buttons">
-        <input type="radio" name="filter" value="Black_and_White"> Black and White<br>
-        <input type="radio" name="filter" value="Sepia"> Sepia<br>
-        <input type="radio" name="filter" value="Invert"> Invert Colors
-        <input type="radio" name="filter" value="Salmonsify"> Salmonify
+        <input type="radio" name="Black_and_White" value="Black_and_White" > Black and White <br>
+        <input type="radio" name="Sepia" value="Sepia"> Sepia<br>
+        <input type="radio" name="Invert" value="Invert"> Invert Colors<br>
+        <input type="radio" name="Salmonsify" value="Salmonsify"> Salmonify<br>
       </form>
     </section>
 
-    <!--This is the container for the SAVE AND S`HARE section -->
+    <!--This is the container for the SAVE AND SHARE section -->
     <section class="save_and_share_box">
       <!-- NEEDS WORK: insert FB share code from https://developers.facebook.com/docs/plugins/share-button-->
       <!-- NEEDS WORK: insert Twitter share code https://about.twitter.com/resources/buttons#tweet -->
@@ -38,7 +39,7 @@
 
       <!-- NEEDS WORK: Email, needs link to settings page containing email address -->
       <p>
-        <a href="mailto:genetroy@hotmail.com?Subject=New%20Pic%20From%20Omnifilter" target="_top">Send Mail</a>
+        <a href="mailto:{{email}}?Subject=New%20Pic%20From%20Omnifilter" target="_top">Send Mail</a>
       </p>
       <!-- NEEDS WORK: insert DropBox share code here. For URL of file to be
       generated, we need a way to change the file name so that the nothing gets overwritten.
