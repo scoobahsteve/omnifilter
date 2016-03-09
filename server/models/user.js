@@ -8,12 +8,13 @@ var userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.hashPassword = function(password) {
-  var hash = this.authentication.password = bcrypt.hashSync(password, 8);
+  debugger;
+  var hash = this.password = bcrypt.hashSync(password, 8);
   return hash;
 };
 
 userSchema.methods.comparePassword = function(password) {
-  return bcrypt.compareSync(password, this.authentication.password);
+  return bcrypt.compareSync(password, this.password);
 };
 
 userSchema.methods.generateToken = function() {
