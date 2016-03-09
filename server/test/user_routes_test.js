@@ -42,14 +42,14 @@ describe('user API', () => {
           expect(res).to.have.status(200);
           expect(res.body.user).to.eql('test user');
           expect(res.body).to.have.property('user_id');
-          done();
         });
+        done();
     });
 
   it('should be able to verify that a user exists', (done) => {
     request('localhost:3000')
       .get('/verify/')
-      // .set('token', userToken)
+      .set('token', userToken)
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(res.body).to.not.eql(null);
@@ -62,7 +62,7 @@ describe('user API', () => {
         User.create( { email: 'gene@gmail.com', password: 'password' }, (err, data) => {
           if (err) return console.log(err);
           this.testUser = data;
-          done(); 
+          done();
         });
       });
 
@@ -73,7 +73,7 @@ describe('user API', () => {
           .send({ email: 'new email' })
           .end((err, res) => {
             expect(err).to.eql(null);
-            expect(res.body.msg).to.eql('Successfully updated user');
+            expect(res.body.msg).to.eql('User updated');
             expect(res).to.have.status(200);
             done();
           });
@@ -85,7 +85,7 @@ describe('user API', () => {
           .set('token', userToken)
           .end((err, res) => {
             expect(err).to.eql(null);
-            expect(res.body.msg).to.eql('Successfully deleted user');
+            expect(res.body.msg).to.eql('User deleted');
             expect(res).to.have.status(200);
             done();
           });
