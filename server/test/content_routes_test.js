@@ -6,8 +6,27 @@ const mongoose = require('mongoose');
 process.env.MONGOLAB_URI = 'mongodb://localhost/content_app_test';
 const server = require(__dirname + '/../server');
 const Content = require(__dirname + '/../models/content');
+const User = require(__dirname + '/../models/user');
+
 
 describe('content api', () => {
+
+  var userToken;
+  var userId;
+
+  before((done) => {
+    var newUser = new User();
+    newUser.email = 'gene@gmail.com';
+    newUser.hashPassword('password');
+    newUser.save((err, data) => {
+      if(err) return console.log(err);
+      userToken = data.generateToken();
+      userId = data._id;
+      console.log('made user, token is : ' + userToken);
+      done();
+    });
+  });
+
   after((done) => {
     mongoose.connection.db.dropDatabase(() => {
       done();
@@ -17,21 +36,24 @@ describe('content api', () => {
   it('should be able to retrieve all content', (done) => {
     chai.request('localhost:3000')
       .get('/getall')
+      .set({token: userToken})
       .end((err, res) => {
         expect(err).to.eql(null);
-        expect(Array.isArray(res.body)).to.eql(true);
+        expect(res.body).to.not.eql(null);
         done();
       });
   });
 
   it('should create content with a POST', (done) => {
+    // console.log('user token : ' + userToken);
     chai.request('localhost:3000')
       .post('/newcontent')
-      .send({name: 'test content'})
+      .set({token: userToken})
+      .send({content: 'content'})
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
-        expect(res.body.name).to.eql('test content');
+        expect(res.body.content).to.eql('content');
         expect(res.body).to.have.property('_id');
         done();
       });
@@ -48,6 +70,7 @@ describe('content api', () => {
     it('should be able to update content', (done) => {
       chai.request('localhost:3000')
         .put('/preview/' + this.testContent._id)
+        .set({token: userToken})
         .send({name: 'new content name'})
         .end((err, res) => {
           expect(err).to.eql(null);
@@ -60,6 +83,7 @@ describe('content api', () => {
     it('should be able to delete content', (done) => {
       chai.request('localhost:3000')
         .delete('/delete/' + this.testContent._id)
+        .set({token: userToken})
         .end((err, res) => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
