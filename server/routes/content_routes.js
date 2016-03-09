@@ -26,10 +26,13 @@ contentRouter.get('/getall', jwtAuth, (req, res) => {
 });
 
 contentRouter.post('/newcontent', jwtAuth, jsonParser, (req, res) => {
+  debugger;
   var newContent = new Content(req.body);
-  newContent.contentId = req.user._id;
+  newContent.user_id = req.user._id;
+  newContent.content = req.body.content;
   newContent.save((err, data) => {
-    if (err) return handleDBError(err, res);    
+    debugger;
+    if (err) return handleDBError(err, res);
 
     res.status(200).json(data);
   });
@@ -37,9 +40,9 @@ contentRouter.post('/newcontent', jwtAuth, jsonParser, (req, res) => {
 
 contentRouter.post('/save', jwtAuth, jsonParser, (req, res) => {
   var newContent = new Content(req.body);
-  newContent.contentId = req.user._id;
+  newContent.user_id = req.user._id;
   newContent.save((err, data) => {
-    if (err) return handleDBError(err, res);    
+    if (err) return handleDBError(err, res);
 
     res.status(200).json(data);
   });

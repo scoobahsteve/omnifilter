@@ -8,7 +8,7 @@ var userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.hashPassword = function(password) {
-  debugger;
+  // debugger;
   var hash = this.password = bcrypt.hashSync(password, 8);
   return hash;
 };

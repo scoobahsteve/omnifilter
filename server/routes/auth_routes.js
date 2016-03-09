@@ -13,7 +13,7 @@ function emailValidation(nnnotavar){
 const authRouter = express.Router();
 
 authRouter.post('/signup', jsonParser, (req, res) => {
-  debugger;
+  // debugger;
   if (!(req.body.email || '').length && !emailValidation(req.body.email)) {
     return res.status(400).json({ msg: 'Please enter an email' });
   }

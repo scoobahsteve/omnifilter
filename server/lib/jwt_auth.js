@@ -11,16 +11,19 @@ module.exports = exports = (req, res, next) => {
   } catch (e) {
     return res.status(401).json({ msg: 'could not authenticate user' });
   }
+  // debugger;
+  console.log('decoded is : ' + decoded.id + " " + decoded.iat);
   if (!decoded) res.status(401).json({ msg: 'could not authenticate user' });
 
-  User.findOne({ _id: decoded._id }, (err, user) => {
+  User.findOne({ _id: decoded.id }, (err, user) => {
+    // debugger;
     if (err) {
       console.log(err);
       res.status(500).json({ msg: 'DB error' });
     }
     if (!user) return res.status(401).json({ msg: 'user not found' });
     console.log(req.user);
-    delete user.authentication.password;
+    delete user.password;
     req.user = user;
     next();
   });
