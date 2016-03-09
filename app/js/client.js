@@ -1,17 +1,17 @@
 const angular = require('angular');
 require('angular-route');
-const usersApp = angular.module('usersApp', ['ngRoute']);
+const omnifilterApp = angular.module('omnifilterApp', ['ngRoute']);
 
-require('./services')(usersApp);
+require('./services')(omnifilterApp);
 
-require('./users')(usersApp);
-require('./auth')(usersApp);
+require('./users')(omnifilterApp);
+require('./auth')(omnifilterApp);
 
-usersApp.config(['$routeProvider', function(routes) {
+omnifilterApp.config(['$routeProvider', function(routes) {
   routes
     .when('/home', {
-      controller: 'UsersController',
-      templateUrl: '/views/users_view.html'
+      controller: 'OmnifilterController',
+      templateUrl: '/views/omnifilter_view.html'
     })
     .when('/', {
       redirectTo: '/home'
