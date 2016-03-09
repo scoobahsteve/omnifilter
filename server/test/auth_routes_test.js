@@ -7,7 +7,7 @@ var expect = chai.expect;
 process.env.MONGO_URI = 'mongodb://localhost/omnifilter_app_dev';
 
 const server = require(__dirname + '/../server.js');
-const User = require(__dirname + '/../models/user.js');
+const User = require(__dirname + '/../models/user');
 var baseUri = 'localhost:3000';
 var userId;
 var userToken;

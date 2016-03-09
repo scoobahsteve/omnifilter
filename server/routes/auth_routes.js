@@ -6,6 +6,11 @@ const basicHTTP = require(__dirname + '/../lib/basic_http');
 // const saveUserDB = require(__dirname + '/../lib/save_new_user');
 // const emailValidation = require(__dirname + '/../lib/email_validation.js');
 
+function emailValidation(nnnotavar){
+  nnnotavar = true;
+  return true;
+}
+
 const authRouter = module.exports = exports = express.Router();
 
 authRouter.post('/signup', jsonParser, (req, res) => {
