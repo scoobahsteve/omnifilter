@@ -21,7 +21,7 @@ module.exports = exports = (req, res, next) => {
       console.log(err);
       res.status(500).json({ msg: 'DB error' });
     }
-    if (!user) return res.status(401).json({ msg: 'user not found' });
+    if (!user) return res.status(401).json({ msg: 'Error finding user' });
     console.log(req.user);
     delete user.password;
     req.user = user;
