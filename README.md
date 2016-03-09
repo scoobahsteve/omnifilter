@@ -2,13 +2,23 @@
 ###### An image processing library designed on the theory of parallel processing to apply filters to photos extremely quickly and efficiently.
 
 ## Contents
-+   [Compare/Contrast](https://github.com/ocgears/omnifilter#overview)
++   [Overview](https://github.com/ocgears/omnifilter#overview)
++   [Usage](https://github.com/ocgears/omnifilter#usage)
 +   [API](https://github.com/ocgears/omnifilter#api)
 +   [Dependencies](https://github.com/ocgears/omnifilter#dependencies)
 +   [Authors](https://github.com/ocgears/omnifilter#authors)
 +   [License](https://github.com/ocgears/omnifilter#license)
 
 # Overview
+Application is still under development, thank you for your patience.
+
+# Usage
+Installing on NPM
+```
+npm install omnifilter
+```
+
+Or you can clone our repo directly from GITHUB
 
 ### API
 Content model
@@ -38,12 +48,12 @@ underscore,
 webpack
 
 ### Authors
-Aaron Filson (https://github.com/aaronfilson)<br/>
-Stephen Salzer (https://github.com/scoobahsteve)</br>
-Rob Merrill (https://github.com/robgmerrill)</br>
-Erika Hokanson (https://github.com/erikawho)<br>
-Gene Troy (https://github.com/energene)<br/>
+Aaron Filson [Github](https://github.com/aaronfilson)[Email](aaronfilson@gmail.com)<br/>
+Stephen Salzer [Github](https://github.com/scoobahsteve)[Email](stephen.r.salzer@gmail.com)</br>
+Rob Merrill [Github](https://github.com/robgmerrill)[Email](robgmerrill@gmail.com)</br>
+Erika Hokanson [Github](https://github.com/erikawho)[Email](erika@erikawho.com)<br>
+Gene Troy [Github](https://github.com/energene)[Email](genetroy@hotmail.com)<br/>
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the MIT license. (view file titled 'LICENSE')
