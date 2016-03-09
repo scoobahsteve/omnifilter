@@ -3,7 +3,7 @@ const jsonParser = require('body-parser').json();
 const mongoose = require('mongoose');
 
 const basicHTTP = require(__dirname + '/../lib/basic_http');
-const authCheck = require(__dirname + '/../lib/jwt_auth');
+const jwtAuth = require(__dirname + '/../lib/jwt_auth');
 
 const User = require(__dirname + '/../models/user');
 // const Content = require(__dirname + '/../models/Content');
@@ -11,6 +11,7 @@ const User = require(__dirname + '/../models/user');
 var userRouter = module.exports = exports = express.Router();
 
 userRouter.post('/newuser', jsonParser, (req, res) => {
+  if (!req.body || !req.user) return false; // take this chance to quit early
   var newUser = new User(req.body);
   newUser.user_id = req.user._id;
   newUser.save((err, data) => {
