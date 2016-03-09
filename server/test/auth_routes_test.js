@@ -4,7 +4,7 @@ chai.use(chaiHTTP);
 var mongoose = require('mongoose');
 var expect = chai.expect;
 
-process.env.MONGO_URI = 'mongodb://localhost/omnifilter_app_dev';
+process.env.MONGO_URI = 'mongodb://localhost/auth_route_test';
 
 const server = require(__dirname + '/../server.js');
 const User = require(__dirname + '/../models/user');
@@ -26,14 +26,14 @@ describe('authorization route', () => {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);
         expect(res.body).to.have.property('token');
-        expect(res.body).to.have.property('user');
+        expect(res.body).to.have.property('email');
         done();
       });
   });
   describe('rest requests that require an existing user in the DB', () => {
     beforeEach((done) => {
       var newUser = new User();
-      newUser.authentication.email = 'gene@gmail.com';
+      newUser.email = 'gene@gmail.com';
       newUser.hashPassword('password');
       newUser.save((err, data) => {
         userToken = data.generateToken();
@@ -49,7 +49,7 @@ describe('authorization route', () => {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
           expect(res.body).to.have.property('token');
-          expect(res.body).to.have.property('user');
+          expect(res.body).to.have.property('email');
           done();
         });
     });

@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-// require(__dirname + '/../../node_modules/mongoose/lib/schema/mixed.js');
 
 var contentSchema = new mongoose.Schema({
   user_id: { type: String, required: true },
