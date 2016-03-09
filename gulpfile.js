@@ -25,7 +25,7 @@ gulp.task('webpack:dev', () => {
         filename: 'bundle.js'
       }
     }))
-    .pipe(gulp.dest('build/'));
+    .pipe(gulp.dest(__dirname + '/build'));
 });
 
 gulp.task('webpack:test', () => {
