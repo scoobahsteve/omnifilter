@@ -19,7 +19,7 @@ gulp.task('images:dev', () => {
 });
 
 gulp.task('webpack:dev', () => {
-  gulp.src(__dirname + '/app/js/client.js')
+  gulp.src('./app/js/client.js')
     .pipe(webpack({
       output: {
         filename: 'bundle.js'

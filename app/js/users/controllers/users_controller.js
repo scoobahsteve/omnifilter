@@ -1,8 +1,8 @@
 var angular = require('angular');
 
 module.exports = function(app) {
-  app.controller('UsersController', ['$scope', '$http', 'cfResource', 'cfStore',
-  function($scope, $http, Resource, cfStore) {
+  app.controller('UsersController', ['$scope', '$http', 'cfResource',
+  function($scope, $http, Resource) {
     $scope.users = [];
     var userService = Resource('/users');
 
