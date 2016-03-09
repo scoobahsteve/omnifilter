@@ -48,11 +48,11 @@ underscore,
 webpack
 
 ### Authors
-Aaron Filson [Github](https://github.com/aaronfilson)[Email](aaronfilson@gmail.com)<br/>
-Stephen Salzer [Github](https://github.com/scoobahsteve)[Email](stephen.r.salzer@gmail.com)</br>
-Rob Merrill [Github](https://github.com/robgmerrill)[Email](robgmerrill@gmail.com)</br>
-Erika Hokanson [Github](https://github.com/erikawho)[Email](erika@erikawho.com)<br>
-Gene Troy [Github](https://github.com/energene)[Email](genetroy@hotmail.com)<br/>
+Aaron Filson [Github](https://github.com/aaronfilson)<br/>
+Stephen Salzer [Github](https://github.com/scoobahsteve)</br>
+Rob Merrill [Github](https://github.com/robgmerrill)</br>
+Erika Hokanson [Github](https://github.com/erikawho)<br>
+Gene Troy [Github](https://github.com/energene)<br/>
 
 ## License
 
