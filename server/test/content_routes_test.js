@@ -61,7 +61,7 @@ describe('content api', () => {
 
   describe('rest requests that require content already in db', () => {
     beforeEach((done) => {
-      Content.create({name: 'test content'}, (err, data) => {
+      Content.create({content: 'test content', user_id: userId}, (err, data) => {
         this.testContent = data;
         done();
       });

@@ -54,7 +54,7 @@ contentRouter.put('/preview/:id', jwtAuth, jsonParser, (req, res) => {
   Content.update({_id: req.params.id}, contentData, (err) => {
     if (err) return handleDBError(err, res);
 
-    res.status(200).json({msg: 'filter preview'});
+    res.status(200).json({msg: 'Successfully updated content'});
   });
 });
 
@@ -62,6 +62,6 @@ contentRouter.delete('/delete/:id', jwtAuth, (req, res) => {
   Content.remove({_id: req.params.id}, (err) => {
     if (err) return handleDBError(err, res);
 
-    res.status(200).json({msg: 'success'});
+    res.status(200).json({msg: 'Successfully deleted content'});
   });
 });
