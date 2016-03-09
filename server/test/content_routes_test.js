@@ -33,7 +33,7 @@ describe('content api', () => {
     });
   });
 
-  it('should be able to retrieve all content', (done) => {
+  it('should be able to GET all content', (done) => {
     chai.request('localhost:3000')
       .get('/getall')
       .set({token: userToken})
