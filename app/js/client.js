@@ -4,7 +4,7 @@ const omnifilterApp = angular.module('omnifilterApp', ['ngRoute']);
 
 require('./services')(omnifilterApp);
 
-require('./users')(omnifilterApp);
+require('./omnifilter')(omnifilterApp);
 require('./auth')(omnifilterApp);
 
 omnifilterApp.config(['$routeProvider', function(routes) {
