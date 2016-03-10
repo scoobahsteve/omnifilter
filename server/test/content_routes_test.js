@@ -9,7 +9,7 @@ const Content = require(__dirname + '/../models/content');
 const User = require(__dirname + '/../models/user');
 
 
-describe('content api', () => {
+describe('content API', () => {
 
   var userToken;
   var userId;
@@ -22,7 +22,7 @@ describe('content api', () => {
       if(err) return console.log(err);
       userToken = data.generateToken();
       userId = data._id;
-      console.log('made user, token is : ' + userToken);
+      // console.log('made user, token is : ' + userToken);
       done();
     });
   });
