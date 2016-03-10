@@ -16,11 +16,11 @@ module.exports = exports = (req, res, next) => {
 
   User.findOne({ _id: decoded.id }, (err, user) => {
     if (err) {
-      console.log(err);
+      console.log('find error in jwt error' + err);
       res.status(500).json({ msg: 'DB error' });
     }
     if (!user) return res.status(401).json({ msg: 'Error finding user' });
-    console.log(req.user);
+    // console.log('req.user in jwt :' + req.user);
     delete user.password;
     req.user = user;
     next();
