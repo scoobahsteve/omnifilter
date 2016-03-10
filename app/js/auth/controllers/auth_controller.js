@@ -4,7 +4,7 @@ module.exports = function(app) {
 
     $scope.updateUsername = function() {
       userAuth.getUsername(function(res) {
-        console.log(res);
+      //  console.log(res);
         $scope.username = res.data.username;
       });
     };
