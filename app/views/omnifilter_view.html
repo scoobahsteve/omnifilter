@@ -1,3 +1,61 @@
+<!--This is the container for the whole page -->
+<section class="Grid">
+
+  <!--This is the container for the FILTERS section -->
+  <!-- Add functionality to radio buttons -->
+  <!-- get rid of breaks, use CSS instead -->
+  <section class="Grid-cell" data-ng-controller="authController" data-ng-init="updateUsername()">
+    <form action="DO A GET REQUEST TO /FILTER" class="Grid-cell">
+
+  <radiogroup>
+    <!-- ng-model="filter.name" PUT SOMETHING HERE TO DATA-BIND TO
+    name="Sepia"
+    value="Sepia"
+    ng-change="Sepia">
+    Sepia<br> -->
+
+    <radio id="Sepia" label="Sepia" accesskey="S"/>
+    <radio id="Gaussian" label="Gaussian" accesskey="G"/>
+    <radio id="Black_and_White" label="Black_and_White"  accesskey="B" selected="true"/>
+
+  </radiogroup>
+  </form>
+</section>
+
+  <!--This is the container for the SAVE AND SHARE section -->
+  <section class="save_and_share_box">
+    <!-- NEEDS WORK: insert FB share code from https://developers.facebook.com/docs/plugins/share-button-->
+
+
+
+    <!-- NEEDS WORK: insert Twitter share code https://about.twitter.com/resources/buttons#tweet -->
+
+    <!-- NEEDS WORK: insert OmniWall share code here -->
+    <p>Share on OmniWall!</p>
+
+    <!-- NEEDS WORK: Email, needs link to settings page containing email address -->
+    <p>
+      <a href="mailto:{{user.email}}?Subject=New%20Pic%20From%20Omnifilter" target="_top">Send Mail</a>
+    </p>
+    <!-- NEEDS WORK: insert DropBox share code here. For URL of file to be
+    generated, we need a way to change the file name so that the nothing gets overwritten.
+    Also, it would be nice to send the user name and file creation date to mongo.
+    Dev notes are here https://www.dropbox.com/developers/saver -->
+    <a href="URL OF FILE TO BE ADDED" class="dropbox-saver"></a>
+
+    <!-- NEEDS WORK: insert Local HD save code here.
+    Filesaver notes are here https://github.com/energene/FileSaver.js
+    Filesaver.js is in the /app/js directory
+    Blob notes are here https://github.com/energene/Blob.js
+    Blob.js is in the /app/js directory-->
+  </section><!-- End of Save and Share section -->
+
+  <!--This is the container for the NAV section -->
+  <nav class="nav_box">
+
+  </nav>
+
+
 <section data-ng-init="getAll()">
   <h1>Ermagerd My Photos!!!!:</h1>
   <section data-ng-if="errors.length">

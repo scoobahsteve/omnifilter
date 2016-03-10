@@ -1,16 +1,15 @@
 var angular = require('angular');
 
 module.exports = function(app) {
-  app.controller('PhotosController', ['$scope', '$http', 'cfResource', 'cfStore',
-                  function($scope, $http, Resource, cfStore) {
-
+  app.controller('PhotosController', ['$scope', '$http', 'cfResource',
+  function($scope, $http, Resource) {
     $scope.photos = [];
-    $scope.errors = [];
+    // $scope.errors = [];
     var photoService = Resource('/photos');
 
-    $scope.dismissError = function(err) {
-      $scope.errors.splice($scope.errors.indexOf(err), 1);
-    };
+    // $scope.dismissError = function(err) {
+    //   $scope.errors.splice($scope.errors.indexOf(err), 1);
+    // };
 
     $scope.toggleEdit = function(photo) {
       if (photo.backup) {
