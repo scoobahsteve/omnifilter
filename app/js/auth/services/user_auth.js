@@ -10,7 +10,7 @@ module.exports = function(app) {
             token = $window.localStorage.token = res.data.token;
             cb(null);
           }, function(res) {
-            console.log(res);
+          //  console.log(res);
             cb(res.err);
           });
       },
@@ -27,7 +27,7 @@ module.exports = function(app) {
             token = $window.localStorage.token = res.data.token;
             cb(null);
           }, function(res) {
-            console.log(res);
+        //    console.log(res);
             cb(res);
           });
       },
