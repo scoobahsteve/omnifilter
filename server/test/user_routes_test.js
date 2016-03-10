@@ -37,14 +37,15 @@ describe('user API', () => {
         .post('/newuser')
         .set('token', userToken)
         .send({ user: 'test user' })
-        .end((err, res) => {
+        .end(function (err, res) {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
           expect(res.body.user).to.eql('test user');
           expect(res.body).to.have.property('user_id');
-        });
-        done();
-    });
+      });
+      done();
+  });
+
 
   it('should be able to verify that a user exists', (done) => {
     request('localhost:3000')
@@ -55,14 +56,14 @@ describe('user API', () => {
         expect(res.body).to.not.eql(null);
         done();
       });
-  });
+    });
 
-    describe('tests that require a user in db', () => {
-      beforeEach((done) => {
-        User.create( { email: 'gene@gmail.com', password: 'password' }, (err, data) => {
-          if (err) return console.log(err);
-          this.testUser = data;
-          done();
+describe('tests that require a user in db', (done) => {
+  beforeEach((done) => {
+    User.create( { email: 'gene@gmail.com', password: 'password' }, (err, data) => {
+      if (err) return console.log(err);
+        this.testUser = data;
+        done();
         });
       });
 
@@ -71,7 +72,7 @@ describe('user API', () => {
           .put('/usersettings/' + this.testUser._id)
           .set('token', userToken)
           .send({ email: 'new email' })
-          .end((err, res) => {
+          .end(function (err, res) {
             expect(err).to.eql(null);
             expect(res.body.msg).to.eql('User updated');
             expect(res).to.have.status(200);
