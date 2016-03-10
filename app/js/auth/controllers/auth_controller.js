@@ -1,17 +1,17 @@
 module.exports = function(app) {
   app.controller('authController', ['$scope', 'userAuth', function($scope, userAuth) {
-    $scope.username = null;
+    $scope.email = null;
 
-    $scope.updateUsername = function() {
-      userAuth.getUsername(function(res) {
+    $scope.updateEmail = function() {
+      userAuth.getEmail(function(res) {
         console.log(res);
-        $scope.username = res.data.username;
+        $scope.email = res.data.email;
       });
     };
 
     $scope.logout = function() {
       userAuth.signOut(function() {
-        $scope.username = null;
+        $scope.email = null;
       });
     };
   }]);

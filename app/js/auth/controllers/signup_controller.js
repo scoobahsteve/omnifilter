@@ -3,7 +3,7 @@ module.exports = function(app) {
     $scope.signup = true;
     $scope.submit = function(user) {
       auth.createUser(user, function() {
-        $scope.updateUsername();
+        $scope.updateEmail();
         $location.path('/home');
       });
     };
