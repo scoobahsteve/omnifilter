@@ -41,7 +41,7 @@ module.exports = function(app) {
         user = null;
         if (cb) cb();
       },
-      getUsername: function(cb) {
+      getEmail: function(cb) {
         cb = cb || function(){};
         $http({
           method: 'GET',
@@ -51,14 +51,14 @@ module.exports = function(app) {
           }
         })
         .then(function(res) {
-          user = res.data.username;
+          user = res.data.email;
           cb(res);
         },function(res) {
           cb(res);
         });
       },
-      username: function() {
-        if (!user) auth.getUsername();
+      user: function() {
+        if (!user) auth.getEmail();
         return user;
       }
     };
